@@ -105,10 +105,3 @@ See [ERD.md](./ERD.md).
 - Money movements (deposit/withdraw/transfer/bill payment/package purchase) run inside PostgreSQL transactions with row locks (`FOR UPDATE`) to prevent race conditions and negative balances.
 - `forgot-password` always returns the same response whether or not the email exists, to avoid leaking registered emails. In this internship/demo build the reset token is returned directly in the API response instead of emailed — wire up a real mail provider (e.g. Nodemailer + SendGrid) before production use.
 
-## Suggested Next Steps (Weeks 7–8 of the timeline)
-
-- Add automated tests (Jest + Supertest for API, React Testing Library for UI)
-- Add rate limiting (`express-rate-limit`) on auth routes
-- Add server-side input validation with `express-validator` on every route (scaffolded dependency is already included)
-- Generate a `pg_dump` backup and commit it under `/server/migrations/backup.sql` before submission
-- Deploy: e.g. Render/Railway for the API + PostgreSQL, Vercel/Netlify for the client
